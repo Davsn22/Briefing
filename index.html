@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Briefing de Logotipo</title>
+    <style>
+        h2  {
+            text-align: center;
+            color: #d50050;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 100%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, textarea, select {
+            width:95%;
+            height: 40px;
+            padding: 8px;
+            margin-top: 5px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 100px;
+        }
+        .checkbox-group, .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 5px;
+        }
+        .color-picker {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .image-options img {
+            width: 100px;
+            height: auto;
+            margin: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .image-options img.selected {
+            border-color: #d50050;
+        }
+        button {
+            background: #d50050;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #b00040;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Briefing de Identidade Visual</h2>
+        <form id="logoForm">
+            <label>Nome do Cliente</label>
+            <label>1 - Qual nome do logotipo?</label>
+            <input type="text" id="nome" placeholder="Exemplo: Minha Empresa" required>
+            
+            <label>2 - Qual o seu slogan?</label>
+            <input type="text" id="slogan" placeholder="Exemplo: O melhor serviço para você" required>
+            
+            <label>3 - Qual o estilo do logo?</label>
+            <div class="image-options">
+                <text>Símbolo</text><p>
+                <img src="symbol.png" title="Símbolo" alt="Símbolo" onclick="selectImage(this)" style="width: 150px; height: auto;"></p>
+                <text>Nome Estilizado</text><p>
+                <img src="stylized-name.png" title="Nome Estilizado" alt="Nome Estilizado" onclick="selectImage(this)" style="width: 150px; height: auto;>
+            </div>
+            
+            <label>4 - Quem são seus principais concorrentes?</label>
+            <textarea id="concorrentes" placeholder="Nomes concorrentes e links de referência...(Usaremos isso para te destacar entre os demais)"></textarea>
+            
+            <label>5 - Qual o perfil de seu público-alvo?</label>
+            <textarea id="publico" placeholder="Defina: Idade, Sexo, Profissão, Hobby, Vida Social Ex:Mulher de 18 a 30 Anos, que pratica esportes e ama cuidar do corpo."></textarea>
+        
+            <label>6 - Algum símbolo do segmento deve estar presente?</label>
+            <textarea id="Simbolos" placeholder="Objetos,formas,icones,ferramentas, partes do corpo,produtos ou Natureza"></textarea>
+        
+            
+            <label>7 - Selecione duas cores da sua preferência.</label>
+            <div class="color-picker" style=" no-padding; no-marging height: 100%; width: 300px;">
+                <input type="color" id="cor1" required>
+                <input type="color" id="cor2" required>
+            </div>
+            
+            <label>8 - Qual cor você NÃO gostaria?</label>
+            <div class="color-picker" style=" no-padding; no-marging height: 300px; width: 145px;">
+                <input type="color" id="corProibida">
+            </div>
+
+            <label>9 - Escolha exemplos de logotipos famosos que gosta.</label>
+            <div class="image-options">
+                <img src="nike.png" alt="Nike" onclick="selectImage(this)">
+                <img src="apple.png" alt="Apple" onclick="selectImage(this)">
+                <img src="google.png" alt="Google" onclick="selectImage(this)">
+                <img src="coca-cola.png" alt="Coca-Cola" onclick="selectImage(this)">
+                <img src="adidas.png" alt="Adidas" onclick="selectImage(this)">
+            </div>
+            
+            <label>10 - Escolha o estilo de tipografia desejado.</label>
+            <div class="image-options" style="display: flex; flex-wrap: wrap; grid-template-rows: 20px;">
+                <img src="Contemporâneo.png" alt="Contemporâneo" onclick="selectImage(this)">
+                <img src="Tradicional.png" alt="Tradicional" onclick="selectImage(this)">
+                <img src="Sofisticado.png" alt="Sofisticado" onclick="selectImage(this)">
+                <img src="simples.png" alt="Simples" onclick="selectImage(this)">
+                <img src="Corporativo.png" alt="Corporativo" onclick="selectImage(this)">
+                <img src="Dinâmico.png" alt="Dinâmico" onclick="selectImage(this)">
+            </div>
+            
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <script>
+        function selectImage(element) {
+            document.querySelectorAll('.image-options img').forEach(img => img.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+
+        document.getElementById("logoForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Formulário enviado com sucesso!");
+        });
+    </script>
+</body>
+</html>
